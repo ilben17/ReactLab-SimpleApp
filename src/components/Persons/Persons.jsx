@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Person from './Person/Person';
 import ErrorBoundary from "../../ErrorBoundary/ErrorBoundary"
+import { truncate } from 'fs';
 
 class Persons extends Component {
 
@@ -17,7 +18,13 @@ class Persons extends Component {
     shouldComponentUpdate(nextProps, nextState) {
         console.log("***Start Component LifeCycle - Update ***")
         console.log("[LifeCycle-Update][Persons.js] shouldComponentUpdate")
-        return true; //lieu de faire une comparaison
+        //if i click on remove cockpit all is rendered, its nots hopful
+        //i want only rendered when changes concern person
+        if (nextProps.persons !== this.props.persons) {
+            return true;
+        }
+        return false;
+
     }
 
     getSnapshotBeforeUpdate(previousProps, previousState) {

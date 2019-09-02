@@ -44,6 +44,7 @@ const cokpit = (props) => {
             <p className={assignclasses}>
                 Becareful : there still only one element in list
             </p>
+            <h3>Persons</h3>
             <button
                 className={btnClass}
                 // if btnClass='' il prendera automatiquement la classe 'For every button 
