@@ -11,6 +11,7 @@ class App extends Component {
   }
 
   state = {
+    appTitle: "Persons",
     persons: [
       { name: "ilies", age: 44, id: 1 },
       { name: "Ibtissem", age: 40, id: 2 },
@@ -94,8 +95,9 @@ class App extends Component {
         <button onClick={() => { this.setState({ showCockpit: !this.state.showCockpit }) }}>Remove Show Cockpit</button>
 
         {this.state.showCockpit ? <Cockpit
-          persons={this.state.persons}
+          personsCount={this.state.persons.length}
           showPersons={this.state.showPersons}
+          appTitle={this.state.appTitle}
           onToggle={this.togglePersonHandler} /> : null}
 
         {persons}

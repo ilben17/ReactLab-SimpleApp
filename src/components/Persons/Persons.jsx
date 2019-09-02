@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Person from './Person/Person';
 import ErrorBoundary from "../../ErrorBoundary/ErrorBoundary"
-import { truncate } from 'fs';
 
 class Persons extends Component {
 

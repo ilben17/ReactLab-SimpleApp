@@ -9,7 +9,7 @@ const cokpit = (props) => {
 
         // when will unmounted (remove)     
         return () => { clearTimeout(timer); alert("Clean up & Cockpit unmounted") }
-    }, [/*rmq1*/]);
+    }/*, [rmq1]*/);
 
     //Rmq1: array is supposed contains conditions or dependencies to trigger http request
     //if array is empty it means useEffect() only excute in first render
@@ -35,7 +35,7 @@ const cokpit = (props) => {
     }
 
     const assignclasses = [cssClass.hidden];
-    if ((props.persons.length === 1)) {
+    if ((props.personsCount === 1)) {
         assignclasses[0] = cssClass.warning;
     }
 
@@ -44,7 +44,7 @@ const cokpit = (props) => {
             <p className={assignclasses}>
                 Becareful : there still only one element in list
             </p>
-            <h3>Persons</h3>
+            <h3>{props.appTitle}</h3>
             <button
                 className={btnClass}
                 // if btnClass='' il prendera automatiquement la classe 'For every button 
@@ -60,4 +60,4 @@ const cokpit = (props) => {
     )
 }
 
-export default cokpit;
+export default React.memo(cokpit);
