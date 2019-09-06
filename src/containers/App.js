@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import allClassesInAppCss from "./App.css";
 import Persons from "../components/Persons/Persons";
 import Cockpit from "../components/Cockpit/Cockpit"
+import WithClass from "../hoc/WithClasses"
 
 class App extends Component {
 
@@ -13,10 +14,10 @@ class App extends Component {
   state = {
     appTitle: "Persons",
     persons: [
-      { name: "ilies", age: 44, id: 1 },
-      { name: "Ibtissem", age: 40, id: 2 },
-      { name: "naila", age: 14, id: 3 },
-      { name: "ramzy", age: 7, id: 4 }
+      { name: "BOB", age: 35, id: 1 },
+      { name: "MARY", age: 33, id: 2 },
+      { name: "ELIZE", age: 13, id: 3 },
+      { name: "MIKE", age: 7, id: 4 }
     ],
     showPersons: false,
     showCockpit: true
@@ -91,7 +92,7 @@ class App extends Component {
     }
     //End SetUp
     return (
-      <div className={allClassesInAppCss.App}>
+      <WithClass classes={allClassesInAppCss.App}>
         <button onClick={() => { this.setState({ showCockpit: !this.state.showCockpit }) }}>Remove Show Cockpit</button>
 
         {this.state.showCockpit ? <Cockpit
@@ -101,7 +102,7 @@ class App extends Component {
           onToggle={this.togglePersonHandler} /> : null}
 
         {persons}
-      </div>
+      </WithClass>
     );//END RETURN
   }
   //END RENDER

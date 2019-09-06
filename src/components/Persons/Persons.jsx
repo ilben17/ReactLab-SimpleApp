@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component /*,PureComponent*/ } from 'react';
 import Person from './Person/Person';
 import ErrorBoundary from "../../ErrorBoundary/ErrorBoundary"
 
-class Persons extends Component {
+class Persons extends Component /* ou PureComponent qui remplace le travail de shouldComponentUpdate*/ {
 
     //pour ne pas avoir de warning
     // static getDerivedStateFromProps(props, state) {
@@ -23,7 +23,6 @@ class Persons extends Component {
             return true;
         }
         return false;
-
     }
 
     getSnapshotBeforeUpdate(previousProps, previousState) {
